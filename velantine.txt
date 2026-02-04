@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Fakiha 💖</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #8b0000, #ffffff, #5b2c83);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    width: 340px;
+    position: relative;
+}
+
+h1 {
+    color: #8b0000;
+    font-size: 24px;
+}
+
+p {
+    font-size: 15px;
+    color: #444;
+}
+
+.nick {
+    color: #5b2c83;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yes {
+    background: #8b0000;
+    color: white;
+}
+
+#no {
+    background: #ccc;
+    position: absolute;
+}
+
+#share {
+    background: #E1306C;
+    color: white;
+    font-size: 14px;
+}
+
+.decor {
+    font-size: 26px;
+    position: absolute;
+    top: -15px;
+    right: -10px;
+}
+
+.hearts {
+    position: fixed;
+    font-size: 22px;
+    animation: float 4s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="decor">🖤🎀</div>
+    <h1>Hey Fakiha 💕</h1>
+
+    <p>
+        My <span class="nick">Mama</span>,<br>
+        My <span class="nick">Moon of My Life 🌙</span>,<br>
+        My sweet <span class="nick">Rasgulla 🍬</span><br><br>
+        Will you be my Valentine today? 💘
+    </p>
+
+    <button id="yes" onclick="yesClick()">YES 💖</button>
+    <button id="no" onmouseover="moveNo()">NO 😜</button>
+
+    <br>
+    <button id="share" onclick="shareIG()">Share on Instagram 📸</button>
+</div>
+
+<script>
+function moveNo() {
+    const no = document.getElementById("no");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 60);
+    no.style.left = x + "px";
+    no.style.top = y + "px";
+}
+
+function yesClick() {
+    document.body.innerHTML = `
+        <h1 style="color:white; text-align:center; padding:20px;">
+        💖 Yayyy Fakiha 💖<br><br>
+        Mama said YES 😘<br>
+        Moon of my life shines brighter 🌙<br>
+        Happy Valentine’s Day 💕
+        </h1>
+    `;
+
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.className = "hearts";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "0";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        document.body.appendChild(heart);
+    }
+}
+
+function shareIG() {
+    const text = encodeURIComponent(
+        "Fakiha 💖 Will you be my Valentine? 🌙🍬"
+    );
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.instagram.com/?text=${text}%20${url}`);
+}
+</script>
+
+</body>
+</html>
